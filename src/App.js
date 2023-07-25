@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import BubblePage from "./components/BubblePage";
-import "./styles.scss";
+// import "./styles.scss";
+import "./index.css";
 
 function App() {
   return (
