@@ -53,32 +53,38 @@ const ColorList = ({ colors, updateColors }) => {
   return (
     <div className="colors-wrap">
       <p>Colors</p>
-      <ul>
-        {colors.map((color) => (
-          <li
-            data-testid="colors"
-            key={color.color}
-            onClick={() => editColor(color)}
-          >
-            <span>
-              <span
-                className="delete"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  deleteColor(color);
-                }}
-              >
-                x
-              </span>{" "}
-              {color.color}
-            </span>
-            <div
-              className="color-box"
-              style={{ backgroundColor: color.code.hex }}
-            />
-          </li>
-        ))}
-      </ul>
+      <p>Edit or Delete a Color</p>
+      {colors.length === 0 ? (
+        <p className="loading-message">LOADING COLORS...</p>
+      ) : (
+        <ul>
+          {colors.map((color) => (
+            <li
+              data-testid="colors"
+              key={color.color}
+              onClick={() => editColor(color)}
+            >
+              <span>
+                <span
+                  className="delete"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteColor(color);
+                  }}
+                >
+                  x
+                </span>{" "}
+                {color.color}
+              </span>
+              <div
+                className="color-box"
+                style={{ backgroundColor: color.code.hex }}
+              />
+            </li>
+          ))}
+          {console.log(colors)}
+        </ul>
+      )}
       {editing && (
         <form onSubmit={saveEdit}>
           <legend>edit color</legend>
