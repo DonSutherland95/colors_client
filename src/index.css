@@ -88,3 +88,6 @@ form input {
   padding: 3px 8px;
   margin-top: 16px;
 }
+.loading-message {
+  color: red;
+}
